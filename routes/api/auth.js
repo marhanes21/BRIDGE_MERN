@@ -57,7 +57,7 @@ router.post('/', (req, res) => {
  */
 router.get('/user', auth, (req, res) => {
     User.findById(req.user.id)
-        .select('-password')
+        .select('-password') // send everything minus the password
         .then(user => res.json(user));
 });
 
